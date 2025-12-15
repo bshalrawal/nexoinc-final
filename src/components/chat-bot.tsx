@@ -166,13 +166,9 @@ export function ChatBot() {
                     <CardHeader className="p-4 border-b border-gray-100 bg-white">
                         <CardTitle className="flex items-center justify-between text-lg font-medium text-black">
                             <div className="flex items-center gap-3">
-                                <Image
-                                    src="/logo.png"
-                                    alt="Nexon Inc"
-                                    width={32}
-                                    height={32}
-                                    className="h-8 w-auto object-contain"
-                                />
+                                <div className="bg-primary/10 p-2 rounded-lg">
+                                    <Bot className="h-5 w-5 text-primary" />
+                                </div>
                                 <span className="font-semibold text-base">Nexon Inc</span>
                             </div>
                             <div className="flex items-center gap-1">
