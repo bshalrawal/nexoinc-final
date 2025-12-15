@@ -4,6 +4,8 @@ import { BlurFade } from '@/registry/magicui/blur-fade';
 import { CheckCircle, Target, Users, Zap, Globe, Rocket, Shield, Heart, Award, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import PageHero from '@/components/layout/page-hero';
+import { PremiumButton } from '@/components/ui/premium-button';
+import { Timeline } from '@/components/timeline';
 
 // Detailed stats
 const stats = [
@@ -138,6 +140,9 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Timeline Section */}
+        <Timeline />
+
         {/* Values Section - Matching Capabilities Grid */}
         <section className="py-20 px-4 bg-background">
           <div className="container mx-auto">
@@ -185,12 +190,10 @@ export default function AboutPage() {
                   <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
                     Let's combine our expertise with your vision to build something extraordinary.
                   </p>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 shadow-xl hover:scale-105"
-                  >
-                    Contact Us Today
-                    <ArrowRight className="h-5 w-5" />
+                  <Link href="/contact">
+                    <PremiumButton variant="white" icon={<ArrowRight className="h-5 w-5" />}>
+                      Contact Us Today
+                    </PremiumButton>
                   </Link>
                 </div>
               </div>

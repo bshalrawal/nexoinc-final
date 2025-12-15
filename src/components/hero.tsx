@@ -6,6 +6,8 @@ import { Counter } from "./ui/counter";
 import Image from "next/image";
 import Background from "./assets/Background.png";
 import Link from "next/link";
+import { PremiumButton } from "./ui/premium-button";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   "App Development",
@@ -137,33 +139,16 @@ export default function Hero() {
         </motion.p>
 
         {/* CTA Button */}
-        <Link href="https://wa.me/9779763607255" target="_blank" rel="noopener noreferrer">
-          <motion.button
-            className="
-              group relative px-10 py-4 rounded-full 
-              bg-white/10 border border-white/30 
-              backdrop-blur-sm
-              shadow-[0_0_30px_rgba(0,200,255,0.3)]
-              overflow-hidden
-            "
+        <Link href="mailto:info@nexoninc.tech">
+          <PremiumButton
+            variant="glass"
+            icon={<ArrowRight className="w-5 h-5" />}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 50px rgba(0,200,255,0.5)",
-              borderColor: "rgba(255,255,255,0.5)",
-            }}
-            whileTap={{ scale: 0.95 }}
           >
-            <span className="relative z-10 font-medium">Get a Quote</span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileHover={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
+            Get a Quote
+          </PremiumButton>
         </Link>
 
         {/* Counters - Positioned like in image */}

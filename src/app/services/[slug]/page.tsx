@@ -1,5 +1,6 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import PageHero from '@/components/layout/page-hero';
 import { services, Service } from '@/app/services/services-data';
 import { notFound } from 'next/navigation';
 import { CheckCircle, ArrowRight, Zap } from 'lucide-react';
@@ -24,53 +25,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-secondary via-secondary to-secondary/95 pt-32 pb-20 px-4 overflow-hidden">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-700"></div>
-          </div>
-
-          <div className="container mx-auto relative z-10">
-            <BlurFade delay={0.1} inView>
-              <div className="flex items-center justify-center mb-6">
-                <div className="bg-primary/10 p-4 rounded-2xl border border-primary/20">
-                  <Icon className="h-12 w-12 text-primary" />
-                </div>
-              </div>
-            </BlurFade>
-
-            <BlurFade delay={0.2} inView>
-              <h1 className="text-5xl md:text-6xl font-bold text-center mb-6 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
-                {title}
-              </h1>
-            </BlurFade>
-
-            <BlurFade delay={0.3} inView>
-              <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto leading-relaxed">
-                {longDescription}
-              </p>
-            </BlurFade>
-
-            <BlurFade delay={0.4} inView>
-              <div className="flex flex-wrap gap-4 justify-center mt-8">
-                <Link
-                  href="/contact"
-                  className="group bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-105"
-                >
-                  Get Started
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="#capabilities"
-                  className="bg-card hover:bg-card/80 text-foreground px-8 py-4 rounded-full font-semibold transition-all duration-300 border border-border hover:border-primary/50"
-                >
-                  View Details
-                </Link>
-              </div>
-            </BlurFade>
-          </div>
-        </section>
+        <PageHero
+          title={title}
+          subtitle={longDescription}
+          breadcrumb={`Services / ${title}`}
+        />
 
         {/* Our Capabilities Section */}
         <section id="capabilities" className="py-20 px-4 bg-background">
@@ -223,7 +182,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     Let's discuss how we can help transform your business with our {title.toLowerCase()} services.
                   </p>
                   <Link
-                    href="/contact"
+                    href="mailto:info@nexoninc.tech"
                     className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 shadow-xl hover:scale-105"
                   >
                     Contact Us Now

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { PremiumButton } from "./ui/premium-button";
 import { cn } from "@/lib/utils";
 import { services } from "@/app/services/services-data";
 import type { Service } from "@/app/services/services-data";
@@ -83,14 +84,11 @@ export default function OurServices({ className }: { className?: string }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <Button
-                  asChild
-                  className="group h-12 mt-12 px-10 text-lg bg-primary text-white hover:bg-primary/90 transition-colors duration-300"
-                >
-                  <Link href="https://wa.me/9779763607255" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    Get in Touch <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </Button>
+                <Link href="https://wa.me/9779763607255" target="_blank" rel="noopener noreferrer" className="mt-12 inline-block">
+                  <PremiumButton variant="primary" icon={<ArrowRight className="h-5 w-5" />}>
+                    Get in Touch
+                  </PremiumButton>
+                </Link>
               </motion.div>
             </div>
 

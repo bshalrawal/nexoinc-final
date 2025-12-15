@@ -106,11 +106,11 @@ export function ChatBot() {
             {/* Popup Bubble */}
             <div
                 className={cn(
-                    "fixed bottom-40 right-28 z-[90] transition-all duration-500 transform",
+                    "fixed bottom-8 right-24 z-[90] transition-all duration-500 transform",
                     showPopup && !isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"
                 )}
             >
-                <div className="relative bg-white text-gray-900 px-5 py-4 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 max-w-[260px] cursor-pointer" onClick={toggleChat}>
+                <div className="relative bg-white/90 backdrop-blur-md text-gray-900 px-5 py-4 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/50 max-w-[260px] cursor-pointer hover:scale-105 transition-transform" onClick={toggleChat}>
                     <div className="flex items-start gap-4">
                         <div className="relative shrink-0 mt-1">
                             <Bot className="w-8 h-8 text-primary" />
@@ -120,8 +120,8 @@ export function ChatBot() {
                             </span>
                         </div>
                         <div>
-                            <p className="font-semibold text-sm mb-1">Have any queries?</p>
-                            <p className="text-xs text-gray-500 leading-snug">Chat with Nexon AI for instant answers!</p>
+                            <p className="font-semibold text-sm mb-1">Chat with NexonBot</p>
+                            <p className="text-xs text-gray-500 leading-snug">We are online to assist you!</p>
                         </div>
                     </div>
 
@@ -136,26 +136,26 @@ export function ChatBot() {
                     </button>
 
                     {/* Arrow/Tail pointing right */}
-                    <div className="absolute top-1/2 -right-2 w-4 h-4 bg-white transform -translate-y-1/2 rotate-45 border-t border-r border-gray-100"></div>
+                    <div className="absolute top-1/2 -right-2 w-4 h-4 bg-white/90 backdrop-blur-md transform -translate-y-1/2 rotate-45 border-t border-r border-white/50"></div>
                 </div>
             </div>
 
             <Button
                 onClick={toggleChat}
                 className={cn(
-                    "fixed bottom-40 right-6 z-[100] rounded-full h-16 w-16 shadow-2xl transition-all duration-300 hover:scale-110",
-                    isOpen ? "bg-red-500 hover:bg-red-600 rotate-90" : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+                    "fixed bottom-6 right-6 z-[100] rounded-full h-16 w-16 shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all duration-300 hover:scale-110 border-2 border-white",
+                    isOpen ? "bg-rose-600 hover:bg-rose-700 rotate-90" : "bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 hover:from-indigo-500 hover:via-blue-500 hover:to-cyan-400 animate-pulse-subtle"
                 )}
                 size="icon"
             >
                 {isOpen ? (
-                    <X className="h-8 w-8 text-white" />
+                    <X className="h-6 w-6 text-white" />
                 ) : (
                     <div className="relative">
-                        <MessageSquareText className="h-8 w-8 text-white" />
+                        <MessageSquareText className="h-6 w-6 text-white" />
                         <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
                         </span>
                     </div>
                 )}

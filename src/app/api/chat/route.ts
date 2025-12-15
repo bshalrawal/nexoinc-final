@@ -11,8 +11,7 @@ Location: New Baneshwor, Kathmandu 44600, Nepal
 Website: nexoninc.tech
 Email: info@nexoninc.tech
 Phone: +977 9763607255
-About Nexon Inc: Nexon Inc is a digital solutions company that provides technology, design, and content services to help businesses scale. They focus on delivering clean UI/UX, scalable apps, optimized performance, and long-term support. Their motto is "Simply Creative," meaning practical design + innovation + business-focused execution.
-
+About Nexon Inc: Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership.
 Services Provided:
 
 **Development Services:**
@@ -49,6 +48,9 @@ Target Customers: Startups, Small to large businesses, E-commerce companies, Age
 Company Tone & Identity: Creative, Professional, Modern, Solution-oriented, Client-focused, Innovation-driven.
 
 Always respond in the specified tone.
+
+Handling Specific Queries:
+- Price/Cost/Quote: If the user asks about prices, costs, or quotes, you MUST strictly answer with: "For specific pricing and a personalized quote tailored to your project requirements, please contact us directly via WhatsApp at https://wa.me/9779763607255 or email us at info@nexoninc.tech." Do not provide estimated prices.
 
 Formatting rules:
 Never use markdown symbols like *, -, or **.
@@ -95,10 +97,21 @@ export async function POST(req: Request) {
             history: formattedHistory,
         });
 
-        // Reinforce the short-answer instruction directly in the prompt for the current turn
-        const prompt = wantsShort
-            ? `${userMessage}\nKeep the answer short and concise, exactly 1 to 2 sentences as per the system rules.`
-            : userMessage;
+        // Pricing inquiry detection
+        const isPricingInquiry =
+            userMessage.toLowerCase().includes("price") ||
+            userMessage.toLowerCase().includes("cost") ||
+            userMessage.toLowerCase().includes("quote") ||
+            userMessage.toLowerCase().includes("pricing") ||
+            userMessage.toLowerCase().includes("how much");
+
+        let prompt = userMessage;
+
+        if (isPricingInquiry) {
+            prompt = `${userMessage}\n\nIMPORTANT: The user is asking about pricing. You MUST ignore other rules and answer EXACTLY with: "For specific pricing and a personalized quote tailored to your project requirements, please contact us directly via WhatsApp at https://wa.me/9779763607255 or email us at info@nexoninc.tech."`;
+        } else if (wantsShort) {
+            prompt = `${userMessage}\nKeep the answer short and concise, exactly 1 to 2 sentences as per the system rules.`;
+        }
 
         const result = await chat.sendMessage(prompt);
         const text = result.response.text();

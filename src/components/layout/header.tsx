@@ -45,18 +45,19 @@ const ListItem = React.forwardRef<
       <a
         ref={ref}
         className={cn(
-          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+          "group block select-none space-y-1 rounded-xl p-3 leading-none no-underline outline-none transition-all duration-200",
+          "hover:bg-slate-50 hover:shadow-sm ring-1 ring-transparent hover:ring-slate-100", // Refined premium hover
           className
         )}
         {...props}
       >
         <div className="flex items-center gap-3">
-          <div className="bg-primary/10 text-primary p-2 rounded-full">
+          <div className="bg-primary/10 text-primary p-2 rounded-lg transition-colors duration-200 group-hover:bg-primary group-hover:text-white shrink-0">
             <Icon className="h-5 w-5" />
           </div>
-          <div className="text-sm font-medium leading-none">{title}</div>
+          <div className="text-sm font-semibold leading-none text-gray-900 transition-colors duration-200 group-hover:text-primary">{title}</div>
         </div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground pl-12">
+        <p className="line-clamp-2 text-xs leading-relaxed text-slate-500 pl-12 mt-1.5 group-hover:text-slate-600">
           {children}
         </p>
       </a>
@@ -98,12 +99,12 @@ export default function Header() {
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b border-white/10 p-4">
                   <Link href="/" className="block">
-                    <Image
+                    <img
                       src="/logo.png"
                       alt="Nexon Inc"
-                      width={160}
-                      height={53}
-                      className="h-10 w-auto"
+                      width={180}
+                      height={60}
+                      className="h-12 w-auto"
                     />
                   </Link>
                 </div>
@@ -128,14 +129,14 @@ export default function Header() {
         <div className="hidden lg:grid grid-cols-3 items-center w-full">
 
           {/* Logo */}
-          <div className="justify-self-start flex items-center">
+          <div className="justify-self-start flex items-center h-full -ml-60 -mt-8">
             <Link href="/" className="flex items-center">
-              <Image
+              <img
                 src="/logo.png"
                 alt="Nexon Inc"
-                width={180}
-                height={90}
-                className="w-[180px] h-auto"
+                width={200}
+                height={100}
+                className="w-[350px] h-auto object-contain"
               />
             </Link>
           </div>
@@ -202,23 +203,28 @@ export default function Header() {
                     </NavigationMenuTrigger>
 
                     <NavigationMenuContent>
-                      <div className="grid grid-cols-3 w-[60rem] p-4">
-
-
-                        {/* Tabs */}
-                        <div className="col-span-1 flex flex-col gap-2 pr-4 border-r border-border">
-
+                      <div className="grid grid-cols-[250px_1fr] w-[64rem] overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-gray-900/5">
+                        {/* Sidebar Tabs */}
+                        <div className="flex flex-col gap-2 p-3 bg-slate-50/50 border-r border-gray-100">
                           <button
                             onMouseEnter={() => setActiveTab('development')}
                             className={cn(
-                              "flex items-start gap-3 rounded-md p-3 text-left transition-colors",
-                              activeTab === 'development' ? 'bg-muted' : 'hover:bg-muted/50'
+                              "group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 relative",
+                              activeTab === 'development'
+                                ? 'bg-white text-primary shadow-sm ring-1 ring-gray-100'
+                                : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm'
                             )}
                           >
+                            {activeTab === 'development' && (
+                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
+                            )}
+                            <div className={cn("mt-0.5 transition-colors duration-200", activeTab === 'development' ? 'text-primary' : 'text-slate-400 group-hover:text-primary')}>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                            </div>
                             <div>
-                              <h4 className="font-semibold text-foreground">Development</h4>
-                              <p className="text-sm text-muted-foreground">
-                                Creating digital experiences through coding, design, and UX.
+                              <h4 className="font-semibold text-sm">Development</h4>
+                              <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
+                                Technical Solutions
                               </p>
                             </div>
                           </button>
@@ -226,14 +232,22 @@ export default function Header() {
                           <button
                             onMouseEnter={() => setActiveTab('ai')}
                             className={cn(
-                              "flex items-start gap-3 rounded-md p-3 text-left transition-colors",
-                              activeTab === 'ai' ? 'bg-muted' : 'hover:bg-muted/50'
+                              "group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 relative",
+                              activeTab === 'ai'
+                                ? 'bg-white text-primary shadow-sm ring-1 ring-gray-100'
+                                : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm'
                             )}
                           >
+                            {activeTab === 'ai' && (
+                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
+                            )}
+                            <div className={cn("mt-0.5 transition-colors duration-200", activeTab === 'ai' ? 'text-primary' : 'text-slate-400 group-hover:text-primary')}>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>
+                            </div>
                             <div>
-                              <h4 className="font-semibold text-foreground">AI & Innovation</h4>
-                              <p className="text-sm text-muted-foreground">
-                                Future-ready AI solutions and intelligent automation.
+                              <h4 className="font-semibold text-sm">AI & Innovation</h4>
+                              <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
+                                Future Tech
                               </p>
                             </div>
                           </button>
@@ -241,63 +255,85 @@ export default function Header() {
                           <button
                             onMouseEnter={() => setActiveTab('marketing')}
                             className={cn(
-                              "flex items-start gap-3 rounded-md p-3 text-left transition-colors",
-                              activeTab === 'marketing' ? 'bg-muted' : 'hover:bg-muted/50'
+                              "group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 relative",
+                              activeTab === 'marketing'
+                                ? 'bg-white text-primary shadow-sm ring-1 ring-gray-100'
+                                : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm'
                             )}
                           >
+                            {activeTab === 'marketing' && (
+                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
+                            )}
+                            <div className={cn("mt-0.5 transition-colors duration-200", activeTab === 'marketing' ? 'text-primary' : 'text-slate-400 group-hover:text-primary')}>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M9 3v4" /><path d="M3 7h10" /></svg>
+                            </div>
                             <div>
-                              <h4 className="font-semibold text-foreground">Marketing</h4>
-                              <p className="text-sm text-muted-foreground">
-                                Promotion and growth through digital strategy.
+                              <h4 className="font-semibold text-sm">Marketing</h4>
+                              <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
+                                Growth & Strategy
                               </p>
                             </div>
                           </button>
-
                         </div>
 
                         {/* Services Grid */}
-                        <ul className="col-span-2 grid w-full grid-cols-2 gap-3">
-                          {activeTab === 'development' && (
-                            developmentServices.map((service) => (
-                              <ListItem
-                                key={service.title}
-                                title={service.title}
-                                href={`/services/${service.slug}`}
-                                icon={service.icon}
-                              >
-                                {service.shortDescription}
-                              </ListItem>
-                            ))
-                          )}
+                        <div className="p-6 bg-white">
+                          <div className="mb-5 border-b border-gray-50 pb-4">
+                            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                              {activeTab === 'development' && 'Development Solutions'}
+                              {activeTab === 'ai' && 'AI & Intelligent Automation'}
+                              {activeTab === 'marketing' && 'Digital Marketing & Growth'}
+                            </h3>
+                            <p className="text-sm text-slate-500 mt-1">
+                              {activeTab === 'development' && 'Robust, scalable, and secure engineering for modern businesses.'}
+                              {activeTab === 'ai' && 'Leverage cutting-edge AI to automate and optimize operations.'}
+                              {activeTab === 'marketing' && 'Data-driven strategies to amplify your brand presence.'}
+                            </p>
+                          </div>
+                          <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                            {activeTab === 'development' && (
+                              developmentServices.map((service) => (
+                                <ListItem
+                                  key={service.title}
+                                  title={service.title}
+                                  href={`/services/${service.slug}`}
+                                  icon={service.icon}
+                                  className="hover:bg-slate-50"
+                                >
+                                  {service.shortDescription}
+                                </ListItem>
+                              ))
+                            )}
 
-                          {activeTab === 'ai' && (
-                            aiServices.map((service) => (
-                              <ListItem
-                                key={service.title}
-                                title={service.title}
-                                href={`/services/${service.slug}`}
-                                icon={service.icon}
-                              >
-                                {service.shortDescription}
-                              </ListItem>
-                            ))
-                          )}
+                            {activeTab === 'ai' && (
+                              aiServices.map((service) => (
+                                <ListItem
+                                  key={service.title}
+                                  title={service.title}
+                                  href={`/services/${service.slug}`}
+                                  icon={service.icon}
+                                  className="hover:bg-slate-50"
+                                >
+                                  {service.shortDescription}
+                                </ListItem>
+                              ))
+                            )}
 
-                          {activeTab === 'marketing' && (
-                            marketingServices.map((service) => (
-                              <ListItem
-                                key={service.title}
-                                title={service.title}
-                                href={`/services/${service.slug}`}
-                                icon={service.icon}
-                              >
-                                {service.shortDescription}
-                              </ListItem>
-                            ))
-                          )}
-                        </ul>
-
-
+                            {activeTab === 'marketing' && (
+                              marketingServices.map((service) => (
+                                <ListItem
+                                  key={service.title}
+                                  title={service.title}
+                                  href={`/services/${service.slug}`}
+                                  icon={service.icon}
+                                  className="hover:bg-slate-50"
+                                >
+                                  {service.shortDescription}
+                                </ListItem>
+                              ))
+                            )}
+                          </ul>
+                        </div>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
@@ -336,12 +372,12 @@ export default function Header() {
         {/* Mobile Logo */}
         <div className="lg:hidden">
           <Link href="/" className="flex items-center">
-            <Image
+            <img
               src="/logo.png"
               alt="Nexon Inc"
-              width={160}
-              height={53}
-              className="h-10 w-auto"
+              width={180}
+              height={60}
+              className="h-12 w-auto"
             />
           </Link>
         </div>

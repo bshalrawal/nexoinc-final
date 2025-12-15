@@ -1,5 +1,5 @@
 'use client';
-import { Button } from "./ui/button";
+import { PremiumButton } from "./ui/premium-button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 
@@ -57,9 +57,9 @@ export default function WhatWeDo() {
                 <Input type="text" placeholder="Company Name" className="bg-transparent border-0 border-b border-white/30 rounded-none text-white placeholder:text-white/50 focus:border-white" />
                 <Textarea placeholder="Requirement Details" className="bg-transparent border-0 border-b border-white/30 rounded-none text-white placeholder:text-white/50 focus:border-white h-20" />
                 <div className="pt-8">
-                  <Button type="submit" size="lg" className="bg-primary hover:bg-primary/80 rounded-full text-lg font-semibold px-12 py-8 shadow-lg shadow-primary/30">
-                    Submit
-                  </Button>
+                  <PremiumButton type="submit" variant="primary" className="w-full md:w-auto shadow-primary/30">
+                    Submit Request
+                  </PremiumButton>
                 </div>
               </form>
             </div>
@@ -74,7 +74,7 @@ export default function WhatWeDo() {
           <InfoCard
             description="Get a free quote and see how we can help your business grow."
             details=""
-            link="#pricing"
+            link="mailto:info@nexoninc.tech"
             isPrimary
           />
         </div>

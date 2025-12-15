@@ -78,12 +78,12 @@ export default function Footer() {
 
           <div className="col-span-1 lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
-              <Image
+              <img
                 src="/logo.png"
                 alt="Nexon Inc"
-                width={140}
-                height={50}
-                className="h-10 w-auto"
+                width={300}
+                height={150}
+                className="w-[300px] h-auto"
               />
             </Link>
             <p className="text-lg text-white/80 font-light leading-relaxed">
