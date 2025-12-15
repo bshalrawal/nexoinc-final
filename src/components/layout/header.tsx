@@ -19,16 +19,20 @@ import React, { useState, useEffect } from 'react';
 import { services } from '@/app/services/services-data';
 
 const developmentServices = services.filter(s =>
-  ['ui-ux-creative-design', 'app-development', 'software-development', 'graphic-design', 'ecommerce-solutions', 'cloud-and-devops', 'qa-and-test-automation', 'maintenance-and-support'].includes(s.slug)
+  ['web-development', 'mobile-applications', 'custom-software-development', 'cloud-solutions', 'ui-ux-creative-design', 'graphic-design', 'ecommerce-solutions', 'qa-and-test-automation', 'maintenance-and-support', 'cybersecurity', 'it-consulting', 'data-analytics'].includes(s.slug)
+).sort((a, b) => a.title.localeCompare(b.title));
+
+const aiServices = services.filter(s =>
+  ['ai-strategy-consulting', 'generative-ai', 'agentic-ai', 'ai-governance', 'machine-learning', 'intelligent-automation'].includes(s.slug)
 ).sort((a, b) => a.title.localeCompare(b.title));
 
 const marketingServices = services.filter(s =>
-  ['professional-content-writer', 'seo-and-analytics'].includes(s.slug)
+  ['professional-content-writer', 'digital-marketing'].includes(s.slug)
 ).sort((a, b) => a.title.localeCompare(b.title));
+
 
 const navLinks = [
   //{ href: '/portfolio', label: 'Portfolio' },
-  { href: '/blogs', label: 'Blogs' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -105,7 +109,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex flex-col space-y-4 p-4 mt-8">
-                  {[{ href: '/about', label: 'About' }, { href: '/services', label: 'Services' }, ...navLinks].map((link) => (
+                  {[{ href: '/', label: 'Home' }, { href: '/about', label: 'About' }, { href: '/services', label: 'Services' }, ...navLinks].map((link) => (
                     <Link key={link.href} href={link.href} className="text-lg hover:text-primary">
                       {link.label}
                     </Link>
@@ -150,6 +154,23 @@ export default function Header() {
               <NavigationMenu>
                 <NavigationMenuList>
 
+                  {/* Home */}
+                  <NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href="/"
+                        className={cn(
+                          navigationMenuTriggerStyle(),
+                          isScrolled
+                            ? 'text-gray-900 hover:text-primary hover:bg-primary/10'
+                            : 'text-white hover:bg-primary/80'
+                        )}
+                      >
+                        Home
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+
                   {/* About */}
                   <NavigationMenuItem>
                     <NavigationMenuLink asChild>
@@ -183,6 +204,7 @@ export default function Header() {
                     <NavigationMenuContent>
                       <div className="grid grid-cols-3 w-[60rem] p-4">
 
+
                         {/* Tabs */}
                         <div className="col-span-1 flex flex-col gap-2 pr-4 border-r border-border">
 
@@ -197,6 +219,21 @@ export default function Header() {
                               <h4 className="font-semibold text-foreground">Development</h4>
                               <p className="text-sm text-muted-foreground">
                                 Creating digital experiences through coding, design, and UX.
+                              </p>
+                            </div>
+                          </button>
+
+                          <button
+                            onMouseEnter={() => setActiveTab('ai')}
+                            className={cn(
+                              "flex items-start gap-3 rounded-md p-3 text-left transition-colors",
+                              activeTab === 'ai' ? 'bg-muted' : 'hover:bg-muted/50'
+                            )}
+                          >
+                            <div>
+                              <h4 className="font-semibold text-foreground">AI & Innovation</h4>
+                              <p className="text-sm text-muted-foreground">
+                                Future-ready AI solutions and intelligent automation.
                               </p>
                             </div>
                           </button>
@@ -233,6 +270,19 @@ export default function Header() {
                             ))
                           )}
 
+                          {activeTab === 'ai' && (
+                            aiServices.map((service) => (
+                              <ListItem
+                                key={service.title}
+                                title={service.title}
+                                href={`/services/${service.slug}`}
+                                icon={service.icon}
+                              >
+                                {service.shortDescription}
+                              </ListItem>
+                            ))
+                          )}
+
                           {activeTab === 'marketing' && (
                             marketingServices.map((service) => (
                               <ListItem
@@ -246,6 +296,7 @@ export default function Header() {
                             ))
                           )}
                         </ul>
+
 
                       </div>
                     </NavigationMenuContent>

@@ -94,13 +94,13 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-primary-foreground/50 uppercase tracking-wider mb-4">Our Services</h4>
             <ul className="space-y-2">
-              <li><Link href="/services/ui-ux-creative-design" className="hover:text-accent transition-colors">UI/UX Creative Design</Link></li>
-              <li><Link href="/services/app-development" className="hover:text-accent transition-colors">App Development</Link></li>
-              <li><Link href="/services/software-development" className="hover:text-accent transition-colors">Software Development</Link></li>
-              <li><Link href="/services/ecommerce-solutions" className="hover:text-accent transition-colors">E-commerce Solutions</Link></li>
-              <li><Link href="/services/seo-and-analytics" className="hover:text-accent transition-colors">SEO & Analytics</Link></li>
-              <li><Link href="/services/graphic-design" className="hover:text-accent transition-colors">Graphic Design</Link></li>
-              <li><Link href="/services/cloud-and-devops" className="hover:text-accent transition-colors">Cloud & DevOps</Link></li>
+              <li><Link href="/services/web-development" className="hover:text-accent transition-colors">Web Development</Link></li>
+              <li><Link href="/services/mobile-applications" className="hover:text-accent transition-colors">Mobile Applications</Link></li>
+              <li><Link href="/services/custom-software-development" className="hover:text-accent transition-colors">Custom Software</Link></li>
+              <li><Link href="/services/ai-strategy-consulting" className="hover:text-accent transition-colors">AI Strategy & Consulting</Link></li>
+              <li><Link href="/services/cloud-solutions" className="hover:text-accent transition-colors">Cloud Solutions</Link></li>
+              <li><Link href="/services/digital-marketing" className="hover:text-accent transition-colors">Digital Marketing</Link></li>
+              <li><Link href="/services/cybersecurity" className="hover:text-accent transition-colors">Cybersecurity</Link></li>
             </ul>
 
           </div>
