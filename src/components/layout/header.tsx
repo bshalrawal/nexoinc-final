@@ -97,9 +97,9 @@ export default function Header() {
                     <Image
                       src="/logo.png"
                       alt="Nexon Inc"
-                      width={120}
-                      height={40}
-                      className="h-8 w-auto"
+                      width={160}
+                      height={53}
+                      className="h-10 w-auto"
                     />
                   </Link>
                 </div>
@@ -124,14 +124,14 @@ export default function Header() {
         <div className="hidden lg:grid grid-cols-3 items-center w-full">
 
           {/* Logo */}
-          <div className="justify-self-start">
+          <div className="justify-self-start flex items-center">
             <Link href="/" className="flex items-center">
               <Image
                 src="/logo.png"
                 alt="Nexon Inc"
-                width={300}
-                height={150}
-                className="w-[300px] h-auto"
+                width={180}
+                height={90}
+                className="w-[180px] h-auto"
               />
             </Link>
           </div>
@@ -288,9 +288,9 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="Nexon Inc"
-              width={120}
-              height={40}
-              className="h-8 w-auto"
+              width={160}
+              height={53}
+              className="h-10 w-auto"
             />
           </Link>
         </div>
