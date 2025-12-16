@@ -129,14 +129,14 @@ export default function Header() {
         <div className="hidden lg:grid grid-cols-3 items-center w-full">
 
           {/* Logo */}
-          <div className="justify-self-start flex items-center h-full -ml-60 -mt-8">
+          <div className="justify-self-start flex items-center h-full">
             <Link href="/" className="flex items-center">
               <img
                 src="/logo.png"
                 alt="Nexon Inc"
                 width={200}
                 height={100}
-                className="w-[400px] h-auto object-contain"
+                className="w-[200px] h-auto object-contain"
               />
             </Link>
           </div>
