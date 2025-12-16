@@ -89,7 +89,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-[20] w-full max-w-7xl mx-auto text-center pt-40 px-4">
+      <div className="relative z-[20] w-full container mx-auto text-center pt-40">
 
         {/* Headline */}
         <motion.h1

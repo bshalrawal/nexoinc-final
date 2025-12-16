@@ -79,8 +79,8 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="absolute top-0 w-full py-4 px-4 sm:px-6 lg:px-8 z-30">
-      <div className="container mx-auto flex items-center justify-between">
+    <header className="absolute top-0 w-full py-2 z-30">
+      <div className="w-full px-4 md:px-12 flex items-center justify-between">
 
         {/* Mobile Menu */}
         <div className="lg:hidden">
@@ -136,7 +136,7 @@ export default function Header() {
                 alt="Nexon Inc"
                 width={200}
                 height={100}
-                className="w-[300px] h-auto object-contain"
+                className="h-28 w-auto object-contain"
               />
             </Link>
           </div>
@@ -145,7 +145,7 @@ export default function Header() {
           <div className="justify-self-center">
             <nav
               className={cn(
-                "fixed left-1/2 -translate-x-1/2 top-4 z-50 transition-all duration-300",
+                "fixed left-1/2 -translate-x-1/2 top-8 z-50 transition-all duration-300",
                 "flex items-center space-x-1 px-3 py-2 rounded-full",
                 isScrolled
                   ? "bg-white/95 backdrop-blur-lg shadow-lg border border-gray-200"
