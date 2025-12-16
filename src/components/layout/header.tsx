@@ -104,7 +104,7 @@ export default function Header() {
                       alt="Nexon Inc"
                       width={180}
                       height={60}
-                      className="h-16 w-auto"
+                      className="h-32 w-auto"
                     />
                   </Link>
                 </div>
