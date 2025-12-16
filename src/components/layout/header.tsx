@@ -136,7 +136,7 @@ export default function Header() {
                 alt="Nexon Inc"
                 width={200}
                 height={100}
-                className="w-[350px] h-auto object-contain"
+                className="w-[400px] h-auto object-contain"
               />
             </Link>
           </div>
