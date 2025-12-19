@@ -249,7 +249,7 @@ export default function Header() {
                           <ListItem
                             title="Our Story"
                             icon={Users}
-                            href="/about"
+                            href="/about#story"
                           >
                             Empowering businesses with AI solutions and digital innovation.
                           </ListItem>
@@ -257,7 +257,7 @@ export default function Header() {
                           <ListItem
                             title="Mission & Vision"
                             icon={Target}
-                            href="/about"
+                            href="/about#mission"
                           >
                             To be the world's most trusted technology partner for digital transformation.
                           </ListItem>
@@ -265,7 +265,7 @@ export default function Header() {
                           <ListItem
                             title="Core Values"
                             icon={Award}
-                            href="/about"
+                            href="/about#values"
                           >
                             Guided by Innovation, Excellence, Collaboration, and Integrity.
                           </ListItem>
@@ -273,7 +273,7 @@ export default function Header() {
                           <ListItem
                             title="Our Journey"
                             icon={Rocket}
-                            href="/about"
+                            href="/about#journey"
                           >
                             Explore the milestones and timeline of Nexon Inc's growth.
                           </ListItem>

@@ -67,7 +67,7 @@ export function Timeline() {
     });
 
     return (
-        <section ref={containerRef} className="py-24 bg-background text-foreground relative overflow-hidden">
+        <section id="journey" ref={containerRef} className="py-24 bg-background text-foreground relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
                     {/* Sticky Left Content */}

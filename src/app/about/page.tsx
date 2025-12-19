@@ -72,7 +72,7 @@ export default function AboutPage() {
         </section>
 
         {/* Our Story / Mission Section - Matching Process/Info Style */}
-        <section className="py-20 px-4 bg-muted/30">
+        <section id="story" className="py-20 px-4 bg-muted/30">
           <div className="container mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
               <BlurFade delay={0.1} inView>
@@ -111,7 +111,7 @@ export default function AboutPage() {
               </BlurFade>
 
               <BlurFade delay={0.2} inView>
-                <div className="relative">
+                <div id="mission" className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-10 blur-3xl rounded-full"></div>
                   <div className="relative bg-card border border-border rounded-3xl p-8 shadow-xl">
                     <div className="flex items-start gap-6 mb-8">
@@ -144,7 +144,7 @@ export default function AboutPage() {
         <Timeline />
 
         {/* Values Section - Matching Capabilities Grid */}
-        <section className="py-20 px-4 bg-background">
+        <section id="values" className="py-20 px-4 bg-background">
           <div className="container mx-auto">
             <BlurFade delay={0.1} inView>
               <div className="text-center mb-16">
