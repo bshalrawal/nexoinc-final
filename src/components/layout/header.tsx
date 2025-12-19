@@ -4,7 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
-import { Menu, Instagram, Linkedin } from 'lucide-react';
+import {
+  Menu, Instagram, Linkedin, Code, Cloud, LineChart, Shield,
+  Database, Lightbulb, Brain, Palette, ChevronRight, ArrowRight,
+  Target, Zap, Rocket, Award, Users
+} from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,17 +22,64 @@ import { cn } from '@/lib/utils';
 import React, { useState, useEffect } from 'react';
 import { services } from '@/app/services/services-data';
 
-const developmentServices = services.filter(s =>
-  ['web-development', 'mobile-applications', 'custom-software-development', 'cloud-solutions', 'ui-ux-creative-design', 'graphic-design', 'ecommerce-solutions', 'qa-and-test-automation', 'maintenance-and-support', 'cybersecurity', 'it-consulting', 'data-analytics'].includes(s.slug)
-).sort((a, b) => a.title.localeCompare(b.title));
-
-const aiServices = services.filter(s =>
-  ['ai-strategy-consulting', 'generative-ai', 'agentic-ai', 'ai-governance', 'machine-learning', 'intelligent-automation'].includes(s.slug)
-).sort((a, b) => a.title.localeCompare(b.title));
-
-const marketingServices = services.filter(s =>
-  ['professional-content-writer', 'digital-marketing'].includes(s.slug)
-).sort((a, b) => a.title.localeCompare(b.title));
+const categories = [
+  {
+    id: 'development',
+    title: 'Development',
+    description: 'Custom software solutions',
+    icon: Code,
+    slugs: ['web-development', 'mobile-applications', 'custom-software-development', 'ecommerce-solutions']
+  },
+  {
+    id: 'cloud',
+    title: 'Cloud & Infrastructure',
+    description: 'Scalable cloud solutions',
+    icon: Cloud,
+    slugs: ['cloud-solutions', 'maintenance-and-support', 'qa-and-test-automation']
+  },
+  {
+    id: 'marketing',
+    title: 'Digital Marketing',
+    description: 'Grow your online presence',
+    icon: LineChart,
+    slugs: ['digital-marketing', 'professional-content-writer']
+  },
+  {
+    id: 'cybersecurity',
+    title: 'Cybersecurity',
+    description: 'Protect your digital assets',
+    icon: Shield,
+    slugs: ['cybersecurity']
+  },
+  {
+    id: 'data',
+    title: 'Data Analytics',
+    description: 'Transform data into insights',
+    icon: Database,
+    slugs: ['data-analytics']
+  },
+  {
+    id: 'consulting',
+    title: 'IT Consulting',
+    description: 'Strategic technology guidance',
+    icon: Lightbulb,
+    slugs: ['it-consulting']
+  },
+  {
+    id: 'ai',
+    title: 'AI & Automation',
+    description: 'Future-ready AI solutions',
+    icon: Brain,
+    slugs: ['ai-strategy-consulting', 'generative-ai', 'agentic-ai', 'ai-governance', 'machine-learning', 'intelligent-automation']
+  },
+  {
+    id: 'design',
+    title: 'Creative Design',
+    description: 'User-centric design solutions',
+    icon: Palette,
+    slugs: ['ui-ux-creative-design', 'graphic-design']
+  }
+];
 
 
 const navLinks = [
@@ -38,7 +89,7 @@ const navLinks = [
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { icon: React.ElementType }
+  React.ComponentPropsWithoutRef<"a"> & { icon?: React.ElementType }
 >(({ className, title, children, icon: Icon, ...props }, ref) => {
   return (
     <NavigationMenuLink asChild>
@@ -46,18 +97,23 @@ const ListItem = React.forwardRef<
         ref={ref}
         className={cn(
           "group block select-none space-y-1 rounded-xl p-3 leading-none no-underline outline-none transition-all duration-200",
-          "hover:bg-slate-50 hover:shadow-sm ring-1 ring-transparent hover:ring-slate-100", // Refined premium hover
+          "hover:bg-slate-50 hover:shadow-sm ring-1 ring-transparent hover:ring-slate-100",
           className
         )}
         {...props}
       >
         <div className="flex items-center gap-3">
-          <div className="bg-primary/10 text-primary p-2 rounded-lg transition-colors duration-200 group-hover:bg-primary group-hover:text-white shrink-0">
-            <Icon className="h-5 w-5" />
-          </div>
+          {Icon && (
+            <div className="bg-primary/10 text-primary p-2 rounded-lg transition-colors duration-200 group-hover:bg-primary group-hover:text-white shrink-0">
+              <Icon className="h-5 w-5" />
+            </div>
+          )}
           <div className="text-sm font-semibold leading-none text-gray-900 transition-colors duration-200 group-hover:text-primary">{title}</div>
         </div>
-        <p className="line-clamp-2 text-xs leading-relaxed text-slate-500 pl-12 mt-1.5 group-hover:text-slate-600">
+        <p className={cn(
+          "line-clamp-2 text-xs leading-relaxed text-slate-500 mt-1.5 group-hover:text-slate-600",
+          Icon ? "pl-12" : "pl-0"
+        )}>
           {children}
         </p>
       </a>
@@ -174,19 +230,52 @@ export default function Header() {
 
                   {/* About */}
                   <NavigationMenuItem>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href="/about"
-                        className={cn(
-                          navigationMenuTriggerStyle(),
-                          isScrolled
-                            ? 'text-gray-900 hover:text-primary hover:bg-primary/10'
-                            : 'text-white hover:bg-primary/80'
-                        )}
-                      >
-                        About
-                      </Link>
-                    </NavigationMenuLink>
+                    <NavigationMenuTrigger
+                      className={cn(
+                        isScrolled
+                          ? 'text-gray-900 hover:text-primary hover:bg-primary/10 data-[state=open]:bg-primary/10'
+                          : 'text-white hover:bg-primary/80 data-[state=open]:bg-primary/80'
+                      )}
+                    >
+                      About
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-80 p-4 bg-white rounded-xl shadow-xl ring-1 ring-gray-900/5">
+                        <div className="flex flex-col gap-1">
+                          <ListItem
+                            title="Our Story"
+                            icon={Users}
+                            href="/about"
+                          >
+                            Empowering businesses with AI solutions and digital innovation.
+                          </ListItem>
+
+                          <ListItem
+                            title="Mission & Vision"
+                            icon={Target}
+                            href="/about"
+                          >
+                            To be the world's most trusted technology partner for digital transformation.
+                          </ListItem>
+
+                          <ListItem
+                            title="Core Values"
+                            icon={Award}
+                            href="/about"
+                          >
+                            Guided by Innovation, Excellence, Collaboration, and Integrity.
+                          </ListItem>
+
+                          <ListItem
+                            title="Our Journey"
+                            icon={Rocket}
+                            href="/about"
+                          >
+                            Explore the milestones and timeline of Nexon Inc's growth.
+                          </ListItem>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
                   </NavigationMenuItem>
 
                   {/* Services */}
@@ -203,136 +292,82 @@ export default function Header() {
                     </NavigationMenuTrigger>
 
                     <NavigationMenuContent>
-                      <div className="grid grid-cols-[250px_1fr] w-[64rem] overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-gray-900/5">
+                      <div className="flex w-[64rem] min-h-[500px] overflow-hidden rounded-xl bg-white shadow-xl ring-1 ring-gray-900/5">
                         {/* Sidebar Tabs */}
-                        <div className="flex flex-col gap-2 p-3 bg-slate-50/50 border-r border-gray-100">
-                          <button
-                            onMouseEnter={() => setActiveTab('development')}
-                            className={cn(
-                              "group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 relative",
-                              activeTab === 'development'
-                                ? 'bg-white text-primary shadow-sm ring-1 ring-gray-100'
-                                : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm'
-                            )}
-                          >
-                            {activeTab === 'development' && (
-                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
-                            )}
-                            <div className={cn("mt-0.5 transition-colors duration-200", activeTab === 'development' ? 'text-primary' : 'text-slate-400 group-hover:text-primary')}>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-sm">Development</h4>
-                              <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
-                                Technical Solutions
-                              </p>
-                            </div>
-                          </button>
+                        <div className="w-[280px] flex flex-col p-3 bg-slate-50/50 border-r border-gray-100">
+                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-3 mb-4 mt-2">Our Services</p>
+                          <div className="flex-1 space-y-1">
+                            {categories.map((category) => (
+                              <button
+                                key={category.id}
+                                onMouseEnter={() => setActiveTab(category.id)}
+                                className={cn(
+                                  "w-full group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 relative",
+                                  activeTab === category.id
+                                    ? 'bg-white text-primary shadow-sm ring-1 ring-gray-100'
+                                    : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm'
+                                )}
+                              >
+                                {activeTab === category.id && (
+                                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
+                                )}
+                                <div className={cn(
+                                  "mt-0.5 transition-colors duration-200",
+                                  activeTab === category.id ? 'text-primary' : 'text-slate-400 group-hover:text-primary'
+                                )}>
+                                  <category.icon className="h-4.5 w-4.5" />
+                                </div>
+                                <div className="flex-1">
+                                  <h4 className="font-semibold text-sm leading-tight">{category.title}</h4>
+                                  <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
+                                    {category.description}
+                                  </p>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
 
-                          <button
-                            onMouseEnter={() => setActiveTab('ai')}
-                            className={cn(
-                              "group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 relative",
-                              activeTab === 'ai'
-                                ? 'bg-white text-primary shadow-sm ring-1 ring-gray-100'
-                                : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm'
-                            )}
+                          <Link
+                            href="/services"
+                            className="mt-4 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-gray-200 hover:border-primary hover:text-primary text-slate-600 text-xs font-semibold transition-all group"
                           >
-                            {activeTab === 'ai' && (
-                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
-                            )}
-                            <div className={cn("mt-0.5 transition-colors duration-200", activeTab === 'ai' ? 'text-primary' : 'text-slate-400 group-hover:text-primary')}>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-sm">AI & Innovation</h4>
-                              <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
-                                Future Tech
-                              </p>
-                            </div>
-                          </button>
-
-                          <button
-                            onMouseEnter={() => setActiveTab('marketing')}
-                            className={cn(
-                              "group flex items-start gap-3 rounded-lg p-3 text-left transition-all duration-200 relative",
-                              activeTab === 'marketing'
-                                ? 'bg-white text-primary shadow-sm ring-1 ring-gray-100'
-                                : 'text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm'
-                            )}
-                          >
-                            {activeTab === 'marketing' && (
-                              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-primary rounded-r-full" />
-                            )}
-                            <div className={cn("mt-0.5 transition-colors duration-200", activeTab === 'marketing' ? 'text-primary' : 'text-slate-400 group-hover:text-primary')}>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M9 3v4" /><path d="M3 7h10" /></svg>
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-sm">Marketing</h4>
-                              <p className="text-[11px] text-muted-foreground mt-0.5 font-medium">
-                                Growth & Strategy
-                              </p>
-                            </div>
-                          </button>
+                            View All Services
+                            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                          </Link>
                         </div>
 
-                        {/* Services Grid */}
-                        <div className="p-6 bg-white">
-                          <div className="mb-5 border-b border-gray-50 pb-4">
-                            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                              {activeTab === 'development' && 'Development Solutions'}
-                              {activeTab === 'ai' && 'AI & Intelligent Automation'}
-                              {activeTab === 'marketing' && 'Digital Marketing & Growth'}
-                            </h3>
-                            <p className="text-sm text-slate-500 mt-1">
-                              {activeTab === 'development' && 'Robust, scalable, and secure engineering for modern businesses.'}
-                              {activeTab === 'ai' && 'Leverage cutting-edge AI to automate and optimize operations.'}
-                              {activeTab === 'marketing' && 'Data-driven strategies to amplify your brand presence.'}
-                            </p>
-                          </div>
-                          <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
-                            {activeTab === 'development' && (
-                              developmentServices.map((service) => (
-                                <ListItem
-                                  key={service.title}
-                                  title={service.title}
-                                  href={`/services/${service.slug}`}
-                                  icon={service.icon}
-                                  className="hover:bg-slate-50"
-                                >
-                                  {service.shortDescription}
-                                </ListItem>
-                              ))
-                            )}
+                        {/* Services Grid Content */}
+                        <div className="flex-1 p-8 bg-white">
+                          {categories.map((category) => (
+                            activeTab === category.id && (
+                              <div key={category.id} className="animate-in fade-in duration-300">
+                                <div className="mb-6 border-b border-gray-50 pb-5">
+                                  <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                                    {category.title} Solutions
+                                  </h3>
+                                  <p className="text-sm text-slate-500 mt-1">
+                                    {category.description}
+                                  </p>
+                                </div>
 
-                            {activeTab === 'ai' && (
-                              aiServices.map((service) => (
-                                <ListItem
-                                  key={service.title}
-                                  title={service.title}
-                                  href={`/services/${service.slug}`}
-                                  icon={service.icon}
-                                  className="hover:bg-slate-50"
-                                >
-                                  {service.shortDescription}
-                                </ListItem>
-                              ))
-                            )}
-
-                            {activeTab === 'marketing' && (
-                              marketingServices.map((service) => (
-                                <ListItem
-                                  key={service.title}
-                                  title={service.title}
-                                  href={`/services/${service.slug}`}
-                                  icon={service.icon}
-                                  className="hover:bg-slate-50"
-                                >
-                                  {service.shortDescription}
-                                </ListItem>
-                              ))
-                            )}
-                          </ul>
+                                <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                                  {services
+                                    .filter(s => category.slugs.includes(s.slug))
+                                    .map((service) => (
+                                      <ListItem
+                                        key={service.slug}
+                                        title={service.title}
+                                        href={`/services/${service.slug}`}
+                                        icon={service.icon}
+                                      >
+                                        {service.shortDescription}
+                                      </ListItem>
+                                    ))
+                                  }
+                                </div>
+                              </div>
+                            )
+                          ))}
                         </div>
                       </div>
                     </NavigationMenuContent>
