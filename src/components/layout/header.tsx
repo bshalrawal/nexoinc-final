@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { cn } from '@/lib/utils';
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { services } from '@/app/services/services-data';
 
 const categories = [
@@ -123,6 +124,7 @@ const ListItem = React.forwardRef<
 ListItem.displayName = "ListItem";
 
 export default function Header() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('development');
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -231,10 +233,12 @@ export default function Header() {
                   {/* About */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
+                      onClick={() => router.push('/about')}
                       className={cn(
                         isScrolled
                           ? 'text-gray-900 hover:text-primary hover:bg-primary/10 data-[state=open]:bg-primary/10'
-                          : 'text-white hover:bg-primary/80 data-[state=open]:bg-primary/80'
+                          : 'text-white hover:bg-primary/80 data-[state=open]:bg-primary/80',
+                        "cursor-pointer"
                       )}
                     >
                       About
@@ -281,10 +285,12 @@ export default function Header() {
                   {/* Services */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
+                      onClick={() => router.push('/services')}
                       className={cn(
                         isScrolled
                           ? 'text-gray-900 hover:text-primary hover:bg-primary/10 data-[state=open]:bg-primary/10'
-                          : 'text-white hover:bg-primary/80 data-[state=open]:bg-primary/80'
+                          : 'text-white hover:bg-primary/80 data-[state=open]:bg-primary/80',
+                        "cursor-pointer"
                       )}
                       onMouseEnter={() => setActiveTab('development')}
                     >
