@@ -3,10 +3,9 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 import { FirebaseClientProvider } from '@/firebase/client-provider';
-import { WhatsAppCTA } from '@/components/ui/whatsapp-cta';
 import { ScrollToTop } from '@/components/ui/scroll-to-top';
-import { EmailCTA } from '@/components/ui/email-cta';
 import { ChatBot } from '@/components/chat-bot';
+import { FloatingActionBar } from '@/components/ui/floating-action-bar';
 
 export const metadata: Metadata = {
   title: 'Nexon Inc- Engineering Success',
@@ -48,9 +47,8 @@ export default function RootLayout({
           {children}
         </FirebaseClientProvider>
         <Toaster />
-        <EmailCTA />
-        <WhatsAppCTA />
         <ChatBot />
+        <FloatingActionBar />
         <ScrollToTop />
       </body>
     </html>

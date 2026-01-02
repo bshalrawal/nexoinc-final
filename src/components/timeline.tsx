@@ -12,42 +12,42 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
     {
-        year: "01",
+        year: "2022",
         title: "Company Establishment & Vision",
         description: "Nexon Inc was founded with a mission to provide world-class digital solutions, including web development, mobile apps, AI & automation, and data analytics."
     },
     {
-        year: "02",
+        year: "2022",
         title: "Service Portfolio Defined",
         description: "Our initial offerings focused on web and mobile application development, custom software solutions, and digital transformation services."
     },
     {
-        year: "03",
+        year: "2023",
         title: "First Projects & Early Clients",
         description: "We began working with early clients, delivering projects that emphasized quality, efficiency, and client satisfaction."
     },
     {
-        year: "04",
+        year: "2023",
         title: "Expanding Capabilities",
         description: "Added advanced services such as AI integration, intelligent automation, cloud solutions, and data analytics."
     },
     {
-        year: "05",
+        year: "2024",
         title: "Portfolio Development",
         description: "Our portfolio started showcasing completed projects and case studies, reflecting the diversity and quality of our work."
     },
     {
-        year: "06",
+        year: "2024",
         title: "Global Client Outreach",
         description: "Nexon Inc positioned itself as a trusted digital partner for clients worldwide."
     },
     {
-        year: "07",
+        year: "2025",
         title: "Comprehensive Digital Solutions",
         description: "We now offer a full suite of services, from web & mobile apps to AI, data analytics, and digital marketing solutions."
     },
     {
-        year: "08",
+        year: "2025",
         title: "Commitment to Excellence",
         description: "Emphasis on 24/7 support, agile delivery, and tailored solutions strengthened our long-term client relationships."
     }
@@ -120,7 +120,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
         >
             {/* Number Node */}
             <div className="relative z-10 shrink-0">
-                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-background border-4 border-muted text-muted-foreground font-bold text-lg group-hover:border-primary group-hover:text-primary transition-colors duration-500 shadow-sm z-10 relative">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-background border-4 border-muted text-muted-foreground font-bold text-sm md:text-base group-hover:border-primary group-hover:text-primary transition-colors duration-500 shadow-sm z-10 relative">
                     {item.year}
                 </div>
                 {/* Glow effect for active state if needed, though simple color change is often cleaner */}

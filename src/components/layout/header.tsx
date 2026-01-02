@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescri
 import {
   Menu, Instagram, Linkedin, Code, Cloud, LineChart, Shield,
   Database, Lightbulb, Brain, Palette, ChevronRight, ArrowRight,
-  Target, Zap, Rocket, Award, Users
+  Target, Zap, Rocket, Award, Users, Phone
 } from 'lucide-react';
 import {
   NavigationMenu,
@@ -403,9 +403,14 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Social Icons */}
-          <div className="justify-self-end flex items-center space-x-2">
-
+          <div className="justify-self-end flex items-center space-x-6">
+            <a href="tel:+9779763607255" className={cn(
+              "flex items-center gap-2 text-base font-medium transition-colors hidden lg:flex",
+              isScrolled ? "text-gray-900 hover:text-primary" : "text-white hover:text-white/80"
+            )}>
+              <Phone className="h-4 w-4 fill-current" />
+              +977 9763607255
+            </a>
           </div>
 
         </div>
