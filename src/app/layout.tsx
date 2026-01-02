@@ -32,6 +32,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <title>NexonInc — Web Design & Development Company in Kathmandu</title>
+        <meta name="google-site-verification" content="0E9d9n2Il3Zw9QFbV_VucUCQGHdZwQ1v5AuJcyoFicA" />
         <meta name="description" content="NexonInc is a leading web design and development company in Kathmandu, Nepal. We build modern, fast, and custom websites that help businesses grow." />
         <meta name="author" content="NexonInc" />
         <link rel="canonical" href="https://nexoninc.com/" />

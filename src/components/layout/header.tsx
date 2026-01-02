@@ -25,11 +25,11 @@ import { services } from '@/app/services/services-data';
 
 const categories = [
   {
-    id: 'development',
-    title: 'Development',
-    description: 'Custom software solutions',
-    icon: Code,
-    slugs: ['web-development', 'mobile-applications', 'custom-software-development', 'ecommerce-solutions']
+    id: 'ai',
+    title: 'AI & Automation',
+    description: 'Future-ready AI solutions',
+    icon: Brain,
+    slugs: ['ai-strategy-consulting', 'generative-ai', 'agentic-ai', 'ai-governance', 'machine-learning', 'intelligent-automation']
   },
   {
     id: 'cloud',
@@ -39,11 +39,11 @@ const categories = [
     slugs: ['cloud-solutions', 'maintenance-and-support', 'qa-and-test-automation']
   },
   {
-    id: 'marketing',
-    title: 'Digital Marketing',
-    description: 'Grow your online presence',
-    icon: LineChart,
-    slugs: ['digital-marketing', 'professional-content-writer']
+    id: 'design',
+    title: 'Creative Design',
+    description: 'User-centric design solutions',
+    icon: Palette,
+    slugs: ['ui-ux-creative-design', 'graphic-design']
   },
   {
     id: 'cybersecurity',
@@ -60,25 +60,25 @@ const categories = [
     slugs: ['data-analytics']
   },
   {
+    id: 'development',
+    title: 'Development',
+    description: 'Custom software solutions',
+    icon: Code,
+    slugs: ['web-development', 'mobile-applications', 'custom-software-development', 'ecommerce-solutions']
+  },
+  {
+    id: 'marketing',
+    title: 'Digital Marketing',
+    description: 'Grow your online presence',
+    icon: LineChart,
+    slugs: ['digital-marketing', 'professional-content-writer']
+  },
+  {
     id: 'consulting',
     title: 'IT Consulting',
     description: 'Strategic technology guidance',
     icon: Lightbulb,
     slugs: ['it-consulting']
-  },
-  {
-    id: 'ai',
-    title: 'AI & Automation',
-    description: 'Future-ready AI solutions',
-    icon: Brain,
-    slugs: ['ai-strategy-consulting', 'generative-ai', 'agentic-ai', 'ai-governance', 'machine-learning', 'intelligent-automation']
-  },
-  {
-    id: 'design',
-    title: 'Creative Design',
-    description: 'User-centric design solutions',
-    icon: Palette,
-    slugs: ['ui-ux-creative-design', 'graphic-design']
   }
 ];
 
@@ -125,7 +125,7 @@ ListItem.displayName = "ListItem";
 
 export default function Header() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState('development');
+  const [activeTab, setActiveTab] = useState('ai');
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
