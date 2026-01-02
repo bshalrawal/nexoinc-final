@@ -25,8 +25,8 @@ export default {
       },
 
       fontFamily: {
-        body: ['Poppins', 'sans-serif'],
-        headline: ['Poppins', 'sans-serif'],
+        body: ['var(--font-poppins)', 'sans-serif'],
+        headline: ['var(--font-poppins)', 'sans-serif'],
         code: ['monospace'],
       },
 

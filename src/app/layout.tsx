@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
@@ -8,6 +9,14 @@ import { ChatBot } from '@/components/chat-bot';
 import { FloatingActionBar } from '@/components/ui/floating-action-bar';
 import { EmailCTA } from '@/components/ui/email-cta';
 import { WhatsAppCTA } from '@/components/ui/whatsapp-cta';
+import { AnimationProvider } from '@/components/providers/animation-provider';
+
+const poppins = Poppins({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Nexon Inc- Engineering Success',
@@ -22,9 +31,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <title>NexonInc — Web Design & Development Company in Kathmandu</title>
         <meta name="description" content="NexonInc is a leading web design and development company in Kathmandu, Nepal. We build modern, fast, and custom websites that help businesses grow." />
         <meta name="author" content="NexonInc" />
@@ -44,9 +50,11 @@ export default function RootLayout({
 
         <meta name="keywords" content="web design Nepal, website development Kathmandu, NexonInc, IT company Nepal, ecommerce development Nepal" />
       </head>
-      <body className={cn('font-body antialiased')}>
+      <body className={cn(poppins.variable, 'font-body antialiased')}>
         <FirebaseClientProvider>
-          {children}
+          <AnimationProvider>
+            {children}
+          </AnimationProvider>
         </FirebaseClientProvider>
         <Toaster />
         <ChatBot />
