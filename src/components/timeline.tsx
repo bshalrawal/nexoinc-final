@@ -12,17 +12,17 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
     {
-        year: "2022",
+        year: "2020",
         title: "Company Establishment & Vision",
         description: "Nexon Inc was founded with a mission to provide world-class digital solutions, including web development, mobile apps, AI & automation, and data analytics."
     },
     {
-        year: "2022",
+        year: "2021",
         title: "Service Portfolio Defined",
         description: "Our initial offerings focused on web and mobile application development, custom software solutions, and digital transformation services."
     },
     {
-        year: "2023",
+        year: "2022",
         title: "First Projects & Early Clients",
         description: "We began working with early clients, delivering projects that emphasized quality, efficiency, and client satisfaction."
     },
