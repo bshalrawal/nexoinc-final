@@ -30,7 +30,7 @@ export function ScrollToTop() {
   };
 
   return (
-    <div className="fixed bottom-[16.5rem] right-6 z-40 pointer-events-none">
+    <div className="fixed bottom-[16.5rem] lg:bottom-28 right-6 z-40 pointer-events-none transition-all duration-300">
       <Button
         onClick={scrollToTop}
         className={cn(

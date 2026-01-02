@@ -6,6 +6,8 @@ import { FirebaseClientProvider } from '@/firebase/client-provider';
 import { ScrollToTop } from '@/components/ui/scroll-to-top';
 import { ChatBot } from '@/components/chat-bot';
 import { FloatingActionBar } from '@/components/ui/floating-action-bar';
+import { EmailCTA } from '@/components/ui/email-cta';
+import { WhatsAppCTA } from '@/components/ui/whatsapp-cta';
 
 export const metadata: Metadata = {
   title: 'Nexon Inc- Engineering Success',
@@ -48,7 +50,13 @@ export default function RootLayout({
         </FirebaseClientProvider>
         <Toaster />
         <ChatBot />
-        <FloatingActionBar />
+        <div className="hidden lg:block">
+          <FloatingActionBar />
+        </div>
+        <div className="lg:hidden">
+          <EmailCTA />
+          <WhatsAppCTA />
+        </div>
         <ScrollToTop />
       </body>
     </html>
