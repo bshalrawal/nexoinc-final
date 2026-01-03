@@ -128,7 +128,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <motion.p
-          className="text-lg md:text-xl text-white/95 max-w-3xl mx-auto mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
+          className="text-lg md:text-xl text-white/95 max-w-2xl 2xl:max-w-3xl mx-auto mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
@@ -143,7 +143,7 @@ export default function Hero() {
         <div className="relative mt-20">
           {/* Top Counter */}
           <motion.div
-            className="absolute left-0 bottom-0 hidden lg:block"
+            className="absolute left-0 bottom-0 hidden xl:block"
             initial={{ x: -40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
@@ -171,7 +171,7 @@ export default function Hero() {
 
           {/* Bottom Counter */}
           <motion.div
-            className="absolute right-0 bottom-0 hidden lg:block"
+            className="absolute right-0 bottom-0 hidden xl:block"
             initial={{ x: 40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
@@ -200,7 +200,7 @@ export default function Hero() {
 
           {/* Mobile Counters */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-xl mx-auto lg:hidden"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-xl mx-auto xl:hidden"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
