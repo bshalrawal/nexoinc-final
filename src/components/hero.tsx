@@ -5,9 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from
 import { Counter } from "./ui/counter";
 import Image from "next/image";
 import Background from "./assets/Background.png";
-import Link from "next/link";
-import { PremiumButton } from "./ui/premium-button";
-import { ArrowRight } from "lucide-react";
+
 
 const services = [
   "App Development",
@@ -138,18 +136,8 @@ export default function Hero() {
           You've found the right agency to give your brand the upper hand.
         </motion.p>
 
-        {/* CTA Button */}
-        <Link href="mailto:info@nexoninc.tech">
-          <PremiumButton
-            variant="glass"
-            icon={<ArrowRight className="w-5 h-5" />}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-          >
-            Get a Quote
-          </PremiumButton>
-        </Link>
+
+
 
         {/* Counters - Positioned like in image */}
         <div className="relative mt-20">
