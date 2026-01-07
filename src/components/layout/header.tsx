@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { PremiumButton } from '@/components/ui/premium-button';
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import {
   Menu, Instagram, Linkedin, Code, Cloud, LineChart, Shield,
@@ -403,7 +404,7 @@ export default function Header() {
             </nav>
           </div>
 
-          <div className="justify-self-end flex items-center space-x-6">
+          <div className="justify-self-end flex items-center gap-6">
             <a href="tel:+9779763607255" className={cn(
               "flex items-center gap-2 text-base font-medium transition-colors hidden lg:flex",
               isScrolled ? "text-gray-900 hover:text-primary" : "text-white hover:text-white/80"
@@ -411,6 +412,15 @@ export default function Header() {
               <Phone className="h-4 w-4 fill-current" />
               +977 9763607255
             </a>
+
+            <Link href="/contact" className="hidden lg:block">
+              <PremiumButton
+                variant="accent"
+                className="h-10 px-6 py-2 text-sm"
+              >
+                Quick Inquiry
+              </PremiumButton>
+            </Link>
           </div>
 
         </div>

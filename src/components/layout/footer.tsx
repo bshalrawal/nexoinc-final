@@ -87,7 +87,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-lg text-white/80 font-light leading-relaxed">
-              Nexon Inc. designs and builds web, software, and AI products. We combine strategy, engineering, and design to deliver reliable, user-centered solutions that help businesses grow.
+              Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership.
             </p>
           </div>
 

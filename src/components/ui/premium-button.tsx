@@ -6,7 +6,7 @@ import { motion, HTMLMotionProps } from "framer-motion";
 
 interface PremiumButtonProps extends HTMLMotionProps<"button"> {
     children: React.ReactNode;
-    variant?: "primary" | "secondary" | "glass" | "white" | "outline";
+    variant?: "primary" | "secondary" | "glass" | "white" | "outline" | "accent";
     className?: string;
     icon?: React.ReactNode;
     asChild?: boolean; // Added for compatibility if we need Slot later, but currently unused logic-wise
@@ -26,6 +26,13 @@ export const PremiumButton = React.forwardRef<HTMLButtonElement, PremiumButtonPr
         hover:shadow-[0_6px_20px_rgba(9,166,194,0.23)] 
         hover:bg-primary/90 
         border border-primary/20
+      `,
+            accent: `
+        bg-accent text-accent-foreground
+        shadow-[0_4px_14px_0_rgba(41,216,162,0.39)]
+        hover:shadow-[0_6px_20px_rgba(41,216,162,0.23)]
+        hover:bg-accent/90
+        border border-accent/20
       `,
             secondary: `
         bg-secondary text-secondary-foreground 
