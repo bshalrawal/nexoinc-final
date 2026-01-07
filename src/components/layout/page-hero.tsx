@@ -13,9 +13,10 @@ interface PageHeroProps {
   subtitle: string;
   breadcrumb: string;
   className?: string;
+  icon?: React.ReactNode;
 }
 
-export default function PageHero({ title, subtitle, breadcrumb, className }: PageHeroProps) {
+export default function PageHero({ title, subtitle, breadcrumb, className, icon }: PageHeroProps) {
   // Smooth mouse tracking with Framer Motion
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -29,13 +30,13 @@ export default function PageHero({ title, subtitle, breadcrumb, className }: Pag
     mouseX.set(e.clientX - rect.left);
     mouseY.set(e.clientY - rect.top);
   };
-  
+
   const maskImage = useTransform(
     [smoothX, smoothY],
     ([x, y]) =>
       `radial-gradient(circle 300px at ${x}px ${y}px, transparent 0%, rgba(0,0,0,0.3) 40%, black 100%)`
   );
-  
+
   const WebkitMaskImage = useTransform(
     [smoothX, smoothY],
     ([x, y]) =>
@@ -58,9 +59,9 @@ export default function PageHero({ title, subtitle, breadcrumb, className }: Pag
         data-ai-hint="abstract background"
         priority
       />
-      
+
       {/* Dark overlay with spotlight reveal */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-[5] bg-black/90"
         style={{
           maskImage,
@@ -82,7 +83,18 @@ export default function PageHero({ title, subtitle, breadcrumb, className }: Pag
 
 
       <div className="relative z-20 w-full max-w-7xl mx-auto flex flex-col items-center text-center pt-20 md:pt-32">
-        <motion.div 
+        {icon && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+            className="mb-8 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl"
+          >
+            {icon}
+          </motion.div>
+        )}
+
+        <motion.div
           className="relative mb-2"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -92,7 +104,7 @@ export default function PageHero({ title, subtitle, breadcrumb, className }: Pag
             {title}
           </h1>
         </motion.div>
-        <motion.p 
+        <motion.p
           className="text-lg md:text-xl font-light max-w-3xl mb-4 text-white/80"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -100,7 +112,7 @@ export default function PageHero({ title, subtitle, breadcrumb, className }: Pag
         >
           {subtitle}
         </motion.p>
-        <motion.div 
+        <motion.div
           className="text-sm font-light text-white/70"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

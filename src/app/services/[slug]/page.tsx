@@ -29,6 +29,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           title={title}
           subtitle={longDescription}
           breadcrumb={`Services / ${title}`}
+          icon={<Icon className="w-12 h-12 md:w-16 md:h-16 text-primary" />}
         />
 
         {/* Our Capabilities Section */}
