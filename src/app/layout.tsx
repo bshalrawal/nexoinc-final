@@ -20,7 +20,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Nexon Inc- Engineering Success',
-  description: '#1 Web Design & Development  Company in Nepal',
+  description: 'Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership.',
 };
 
 export default function RootLayout({
@@ -33,19 +33,19 @@ export default function RootLayout({
       <head>
         <title>NexonInc — Web Design & Development Company in Kathmandu</title>
         <meta name="google-site-verification" content="0E9d9n2Il3Zw9QFbV_VucUCQGHdZwQ1v5AuJcyoFicA" />
-        <meta name="description" content="NexonInc is a leading web design and development company in Kathmandu, Nepal. We build modern, fast, and custom websites that help businesses grow." />
+        <meta name="description" content="Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership." />
         <meta name="author" content="NexonInc" />
         <link rel="canonical" href="https://nexoninc.com/" />
 
         <meta property="og:title" content="NexonInc — Web Design & Development Company in Kathmandu" />
-        <meta property="og:description" content="Professional website design, custom development, e-commerce builds, and reliable digital solutions in Kathmandu, Nepal." />
+        <meta property="og:description" content="Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership." />
         <meta property="og:image" content="https://nexoninc.com/og-image.jpg" />
         <meta property="og:url" content="https://nexoninc.com/" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="NexonInc — Web Design & Development Company in Kathmandu" />
-        <meta name="twitter:description" content="We create modern, user-focused web solutions for growing businesses." />
+        <meta name="twitter:description" content="Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership." />
         <meta name="twitter:image" content="https://nexoninc.com/og-image.jpg" />
 
 
