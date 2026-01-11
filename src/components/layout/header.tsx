@@ -163,7 +163,7 @@ export default function Header() {
                       alt="Nexon Inc"
                       width={180}
                       height={60}
-                      className="h-32 w-auto"
+                      className="h-24 w-auto"
                     />
                   </Link>
                 </div>
@@ -195,7 +195,7 @@ export default function Header() {
                 alt="Nexon Inc"
                 width={200}
                 height={100}
-                className="h-28 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </Link>
           </div>
@@ -433,7 +433,7 @@ export default function Header() {
               alt="Nexon Inc"
               width={180}
               height={60}
-              className="h-16 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
         </div>
