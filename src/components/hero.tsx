@@ -87,17 +87,17 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-[20] w-full container mx-auto text-center pt-40">
+      <div className="relative z-[20] w-full container mx-auto text-center pt-24 md:pt-32 lg:pt-40">
 
         {/* Headline */}
         <motion.h1
-          className="flex flex-col items-center text-4xl md:text-6xl font-light mb-10 leading-tight"
+          className="flex flex-col items-center text-4xl md:text-6xl font-light mb-8 md:mb-10 leading-tight"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
           <motion.span
-            className="text-white/80 mb-4"
+            className="text-white/80 mb-2 md:mb-4"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -107,7 +107,7 @@ export default function Hero() {
 
           {/* Rotating text */}
           <span
-            className="relative h-32 w-full max-w-4xl px-4 font-semibold text-accent text-3xl md:text-6xl flex items-center justify-center"
+            className="relative h-24 md:h-32 w-full max-w-4xl px-4 font-semibold text-accent text-3xl md:text-6xl flex items-center justify-center"
             aria-live="polite"
             aria-atomic="true"
           >
@@ -128,7 +128,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <motion.p
-          className="text-lg md:text-xl text-white/95 max-w-2xl 2xl:max-w-3xl mx-auto mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
+          className="text-lg md:text-xl text-white/95 max-w-2xl 2xl:max-w-3xl mx-auto mb-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] px-4"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
@@ -140,10 +140,10 @@ export default function Hero() {
 
 
         {/* Counters - Positioned like in image */}
-        <div className="relative mt-20">
-          {/* Top Counter */}
+        <div className="relative mt-12 md:mt-20">
+          {/* Top Counter - only on very wide screens */}
           <motion.div
-            className="absolute left-0 bottom-0 hidden xl:block"
+            className="absolute left-0 top-0 hidden 2xl:block"
             initial={{ x: -40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
@@ -169,9 +169,9 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Bottom Counter */}
+          {/* Bottom Counter - only on very wide screens */}
           <motion.div
-            className="absolute right-0 bottom-0 hidden xl:block"
+            className="absolute right-0 top-0 hidden 2xl:block"
             initial={{ x: 40, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
@@ -198,9 +198,9 @@ export default function Hero() {
           </motion.div>
 
 
-          {/* Mobile Counters */}
+          {/* Responsive Counters Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-xl mx-auto xl:hidden"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto 2xl:hidden px-4"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
@@ -212,14 +212,16 @@ export default function Hero() {
                 cursor-default
               "
               whileHover={{
-                scale: 1.05,
+                scale: 1.02,
                 backgroundColor: "rgba(255,255,255,0.15)",
                 borderColor: "rgba(255,255,255,0.3)",
               }}
               transition={{ duration: 0.3 }}
             >
-              <p className="text-xs md:text-sm mb-2 text-white/70">Projects Completed</p>
-              <Counter value={50} from={45} suffix="+" className="text-4xl font-semibold" />
+              <Counter value={50} from={45} suffix="+" className="text-4xl font-semibold mb-2" />
+              <p className="text-xs md:text-sm text-white/70">
+                Projects completed for various services in the IT sector.
+              </p>
             </motion.div>
 
             <motion.div
@@ -229,14 +231,16 @@ export default function Hero() {
                 cursor-default
               "
               whileHover={{
-                scale: 1.05,
+                scale: 1.02,
                 backgroundColor: "rgba(255,255,255,0.15)",
                 borderColor: "rgba(255,255,255,0.3)",
               }}
               transition={{ duration: 0.3 }}
             >
-              <p className="text-xs md:text-sm mb-2 text-white/70">Clients Served</p>
-              <Counter value={150} from={120} suffix="+" className="text-4xl font-semibold" />
+              <Counter value={150} from={120} suffix="+" className="text-4xl font-semibold mb-2" />
+              <p className="text-xs md:text-sm text-white/70">
+                Clients Served Across Various Industries and Sectors Globally.
+              </p>
             </motion.div>
 
           </motion.div>

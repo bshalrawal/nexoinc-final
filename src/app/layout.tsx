@@ -21,7 +21,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://nexoninc.tech'),
   title: {
-    default: 'NexonInc — Web Design & Development Company in Kathmandu',
+    default: 'NexonInc — Engineering Success',
     template: '%s | NexonInc',
   },
   description: 'Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership.',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     apple: '/logo.png',
   },
   openGraph: {
-    title: 'NexonInc — Web Design & Development Company in Kathmandu',
+    title: 'NexonInc — Engineering Success',
     description: 'Nexon Inc is a global tech innovator that blends strategic design, cutting-edge technologies, and business-driven execution to build scalable digital products and solutions from responsive web and mobile apps to custom enterprise software, AI systems, cloud infrastructure, cybersecurity, data & analytics, and performance-focused digital marketing, all backed by intelligent support and long-term partnership.',
     url: 'https://nexoninc.tech',
     siteName: 'NexonInc',
