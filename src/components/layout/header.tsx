@@ -85,6 +85,7 @@ const categories = [
 
 
 const navLinks = [
+  { href: '/teams', label: 'Teams' },
   //{ href: '/portfolio', label: 'Portfolio' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -445,5 +446,4 @@ export default function Header() {
     </header>
   );
 }
-
 

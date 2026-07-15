@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useUser } from '@/firebase';
 import { SidebarProvider, Sidebar, SidebarTrigger, SidebarContent, SidebarMenu, SidebarMenuItem } from '@/components/ui/sidebar';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Home, Newspaper, Briefcase, Settings, PlusCircle, LayoutList, Mail } from 'lucide-react';
+import { Home, Newspaper, Briefcase, Settings, PlusCircle, LayoutList, Mail, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function AdminLayout({
@@ -102,6 +102,34 @@ export default function AdminLayout({
                       </SidebarMenuItem>
                        <SidebarMenuItem>
                         <Link href="/admin/portfolio/new" className='w-full'>
+                           <Button variant='ghost' className="w-full justify-start gap-2">
+                            <PlusCircle />
+                            <span>Add New</span>
+                           </Button>
+                        </Link>
+                      </SidebarMenuItem>
+                    </SidebarMenu>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="teams" className="border-none">
+                   <AccordionTrigger className="hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                     <div className="flex items-center gap-2 w-full p-2">
+                        <Users />
+                        <span>Teams</span>
+                      </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <SidebarMenu className='ml-4'>
+                       <SidebarMenuItem>
+                         <Link href="/admin/teams" className='w-full'>
+                           <Button variant='ghost' className="w-full justify-start gap-2">
+                             <LayoutList />
+                            <span>All Members</span>
+                           </Button>
+                        </Link>
+                      </SidebarMenuItem>
+                       <SidebarMenuItem>
+                        <Link href="/admin/teams/new" className='w-full'>
                            <Button variant='ghost' className="w-full justify-start gap-2">
                             <PlusCircle />
                             <span>Add New</span>
